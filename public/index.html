@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    
+    <title>Tie Lab</title>
+    
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
+</head>
+<body id="main-body">
+    <div id="loader-wrapper">
+            <div id="loader"></div>
+            
+            <div id="popup" class="shadow">
+                <div class="popup-title">Thanks</div>
+                <div class="popup-body">
+                    <div class="m-icon">
+                        <i class="material-icons success-color">done</i>
+                    </div>
+                    <div class="popup-message">
+                        We'll keep you updated about Tie Lab.
+                    </div>
+                </div>
+            </div>
+
+            <div id="popup-error" class="shadow">
+                    <div class="popup-title">
+                        Sorry 
+                    </div>
+    
+                    <div class="popup-body">
+                        <div class="m-icon">
+                            <i class="material-icons error-color">warning</i>
+                        </div>
+                        <div class="popup-message">
+                            There was an error. Try again!
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <div id="wrapper">
+        <header class="main-header">
+            <div class="main-container">
+
+                <h1 class="headline">the tie l<img src="img/logo-jar-small.png" height="150" width="122" alt="" class="beaker">b</h1>
+            
+            </div> <!-- main-container -->      
+        </header> <!-- main-header -->
+
+        <div class="content">
+            <div class="main-container">
+
+                <div class="tagline">
+                    <p>We're currently experimenting </p>
+                    <p>and </p>
+                    <p>will be here soon with </p> 
+                    <p>exciting news!</p>
+                </div>
+
+                <div class="jar">
+                    <img src="img/logo-jar.png" alt="Tie Lab">
+                </div>
+
+            </div><!-- main-container -->      
+        </div> <!-- content -->
+    
+       
+        <footer class="main-footer">
+            <div class="main-container">
+                
+                    <div class="signup-info">
+                        <p>If you want to receive news and updates</p>
+                        <p>sign up here</p>
+                    </div>
+                    
+                    <div class="signup-title">
+                        ENTER YOUR EMAIL
+                    </div>  
+                    
+                    <div class="signup-body">
+                        <form action="/signup" class="form-box" id="signup" method="post">
+                            <input type="email" name="email" id="email" class="email-box" placeholder="example@domain.com" class="signup-email" required>  
+                            <button type="submit" class="signup-button"  > Subscribe </button>
+                        </form>
+                    </div>     
+                                
+            </div><!-- main-container-->
+            
+        </footer>
+    </div> <!-- wrapper-->
+
+    <script type='text/javascript'>
+        $("#signup").submit(function(event) {
+
+            event.preventDefault();
+
+            $.ajax({
+                method: 'POST',
+                url: '/signup',
+                data: { email: $('#email').val() }
+                
+            }).done(function(response){
+                setTimeout(function(){
+                    $('#loader-wrapper').addClass('show');
+                    
+            }, 1000);
+            setTimeout(function(){
+                $('#loader-wrapper').removeClass('show');
+            },5000)
+
+        }).fail(function(error) {
+            setTimeout(function(){
+                    $('#loader-wrapper').addClass('show');
+                    
+            }, 1000);
+            setTimeout(function(){
+                $('#loader-wrapper').removeClass('show');
+            },5000)
+        })
+
+
+        });
+    </script>
+    
+        
+</body>
+</html>
+
+
+
+
+
+
+
+
+  

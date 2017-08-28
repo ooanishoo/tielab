@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "default-medium";
+    src: url('fonts/letter-gothic-std-medium.ttf');
+    /* font-style: normal; */
+    /* font-weight: 400; */
+}
+
+@font-face{
+    font-family: "default-bold";
+    src: url('fonts/letter-gothic-std-bold.ttf');
+    /* font-style: normal; */
+    /* font-weight: 600; */
+}
